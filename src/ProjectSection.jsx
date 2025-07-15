@@ -20,7 +20,7 @@ const ProjectSection = () => {
           <p>
             A CRUD-based web app built with Java, Spring Boot, React, and MySQL to manage employee data efficiently.
           </p>
-          <a href="https://github.com/nagayadav/Emp-Mamagement-system" className="project-btn">View Project</a>
+          <a href="https://github.com/nagayadav/EMP-Management" className="project-btn">View Project</a>
         </div>
 
         {/* Project 2 */}
