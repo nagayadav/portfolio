@@ -668,7 +668,7 @@ hr {
 }
 
 /* Small devices (phones, under 768px) */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
@@ -690,6 +690,30 @@ hr {
 
   .navbar li {
     padding: 8px 0;
+  } */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .navbar h2 {
+    margin-left: 0;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: row; /* ✅ Keeps items side by side */
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  .navbar li {
+    padding: 5px 0;
   }
 
   .profile-container {
