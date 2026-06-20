@@ -1,38 +1,39 @@
 import React from "react";
-import webImg from "./assets/response.jpg";
-import backendImg from "./assets/Backen development.jpeg";
-import fullstackImg from "./assets/ecommarce.jpg";
 
 const ServicesSection = () => {
   return (
     <section className="services-container">
-      <h2 className="services-title">My Services</h2>
-      <p className="services-description">
-        {/* Explore the range of development services I offer — from clean frontends to robust backend APIs. */}
-        <p className="services-description">
-          I offer comprehensive web development services tailored to build
-          modern, responsive, and scalable applications. With expertise in
-          frontend design, backend architecture, and full-stack integration, I
-          create solutions that not only look great but also perform seamlessly.
-          Whether it’s building a stunning user interface, developing secure
-          APIs, or delivering full-stack projects, I’m committed to writing
-          clean, efficient code that brings real-world ideas to life.
-        </p>
+      <h2 className="section-title">My Services</h2>
+      <p className="section-subtitle">
+        I offer comprehensive web development services tailored to build modern, responsive, and scalable applications.
       </p>
 
       <div className="services-grid">
         {/* Web Development */}
         <div className="service-card">
           <div className="card-inner">
-            <div className="card-front">
-              <img src={webImg} alt="Web Development" />
-              <h3>Web Development</h3>
+            <div className="card-front glass-panel">
+              <div className="card-front-icon">
+                <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <div>
+                <h3>Web Development</h3>
+                <p>Building responsive, accessible, and user-centric web interfaces using modern standards and practices.</p>
+              </div>
+              <span className="card-front-arrow">Flip Card ➔</span>
             </div>
-            <div className="card-back">
-              <p>
-                I build responsive, accessible, and modern web interfaces using
-                HTML, CSS, JavaScript, and React.js.
-              </p>
+            <div className="card-back glass-panel">
+              <h4>Web Development</h4>
+              <ul>
+                <li>Responsive UI with HTML/CSS</li>
+                <li>Single Page Apps with React</li>
+                <li>Clean, performant JavaScript</li>
+                <li>Cross-browser compatibility</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -40,15 +41,28 @@ const ServicesSection = () => {
         {/* Backend Development */}
         <div className="service-card">
           <div className="card-inner">
-            <div className="card-front">
-              <img src={backendImg} alt="Backend Development" />
-              <h3>Backend Development</h3>
+            <div className="card-front glass-panel">
+              <div className="card-front-icon">
+                <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                  <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+                </svg>
+              </div>
+              <div>
+                <h3>Backend Development</h3>
+                <p>Designing secure RESTful APIs, robust database architectures, and server side structures.</p>
+              </div>
+              <span className="card-front-arrow">Flip Card ➔</span>
             </div>
-            <div className="card-back">
-              <p>
-                RESTful API design and server-side logic using Java, Spring
-                Boot, and MySQL for data-driven apps.
-              </p>
+            <div className="card-back glass-panel">
+              <h4>Backend Features</h4>
+              <ul>
+                <li>RESTful API design & Spring Boot</li>
+                <li>Database schemas using MySQL</li>
+                <li>Security & authentication systems</li>
+                <li>ORM integration with Hibernate</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -56,33 +70,31 @@ const ServicesSection = () => {
         {/* Full Stack Development */}
         <div className="service-card">
           <div className="card-inner">
-            <div className="card-front">
-              <img src={fullstackImg} alt="Full Stack Development" />
-              <h3>Full Stack Development</h3>
+            <div className="card-front glass-panel">
+              <div className="card-front-icon">
+                <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3>Full Stack Integration</h3>
+                <p>Delivering complete end-to-end applications from database design to production frontend deployments.</p>
+              </div>
+              <span className="card-front-arrow">Flip Card ➔</span>
             </div>
-            <div className="card-back">
-              <p>
-                Delivering complete end-to-end solutions by combining frontend
-                and backend technologies.
-              </p>
+            <div className="card-back glass-panel">
+              <h4>Full Stack Scope</h4>
+              <ul>
+                <li>End-to-end integration flow</li>
+                <li>State management implementation</li>
+                <li>JSON data serialization</li>
+                <li>Deployment & DevOps basics</li>
+              </ul>
             </div>
           </div>
         </div>
-
-        {/* Optional Fourth Card
-        <div className="service-card">
-          <div className="card-inner">
-            <div className="card-front">
-              <img src={extraImg} alt="Other Services" />
-              <h3>Extra Service</h3>
-            </div>
-            <div className="card-back">
-              <p>
-                Example of a fourth service — can be anything like deployment, DevOps, testing, etc.
-              </p>
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   );
