@@ -98,9 +98,9 @@ const CanvasBackground = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Draw background grid lines (very faint cyber grid)
-      ctx.strokeStyle = 'rgba(0, 255, 195, 0.015)';
+      ctx.strokeStyle = 'rgba(0, 255, 195, 0.01)';
       ctx.lineWidth = 1;
-      const gridSize = 60;
+      const gridSize = 70;
       
       for (let x = 0; x < canvas.width; x += gridSize) {
         ctx.beginPath();
@@ -129,12 +129,12 @@ const CanvasBackground = () => {
           const distance = Math.hypot(dx, dy);
 
           if (distance < minDistance) {
-            const alpha = (minDistance - distance) / minDistance * 0.15;
+            const alpha = (minDistance - distance) / minDistance * 0.04;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.strokeStyle = `rgba(0, 255, 195, ${alpha})`;
-            ctx.lineWidth = 0.8;
+            ctx.lineWidth = 0.6;
             ctx.stroke();
           }
         }

@@ -1,72 +1,99 @@
 import React from 'react';
 
+const experiences = [
+  {
+    title: "Software Engineer",
+    company: "RideAlott Software Solutions",
+    location: "Corporate Office",
+    duration: "Sep 2025 – Present",
+    type: "Full-Time",
+    icon: "🚀",
+    highlights: [
+      "Engineered client web platform features using React, JavaScript (ES6+), and CSS layout systems.",
+      "Collaborated with backend engineers to consume RESTful APIs and ensure seamless database integration.",
+      "Optimized frontend performance, UI navigation flows, and cross-browser responsiveness."
+    ],
+    tech: ["React", "JavaScript", "HTML5/CSS3", "REST APIs", "Git"]
+  },
+  {
+    title: "Java Full Stack Developer Intern",
+    company: "JSpiders Academy",
+    location: "Training Hub",
+    duration: "Jul 2024 – Jan 2025",
+    type: "Internship & Specialization",
+    icon: "🎓",
+    highlights: [
+      "Mastered Java SE/EE core principles, OOP design, Collections Framework, Multithreading, and Exception Handling.",
+      "Developed Spring Boot REST API micro-services connected with MySQL databases via Hibernate ORM.",
+      "Built full-stack CRUD applications integrating React UI frontend components with Spring controllers."
+    ],
+    tech: ["Java", "Spring Boot", "Hibernate", "MySQL", "React", "Servlets"]
+  },
+  {
+    title: "Java Full Stack Developer Intern",
+    company: "Karthikeya Software Solutions",
+    location: "Project Development",
+    duration: "Jan 2024 – Jun 2024",
+    type: "Internship",
+    icon: "💻",
+    highlights: [
+      "Assisted in backend database schema designs and SQL query optimization for enterprise directories.",
+      "Implemented JDBC database handlers, Servlets, and MVC design pattern structures.",
+      "Participated in agile code reviews, debugging, and client requirement analysis."
+    ],
+    tech: ["Java", "JDBC", "Servlets", "SQL", "HTML/CSS"]
+  }
+];
+
 const Exp = () => {
   return (
-    <section className="timeline-container">
-      <h2 className="section-title">Work Experience</h2>
-      <p className="section-subtitle">
-        A timeline of my professional experience and software developer internships.
-      </p>
+    <div className="experience-section-wrapper">
+      <section className="timeline-container" id="experience">
+        <h2 className="section-title">WORK <span className="highlight-text">EXPERIENCE</span></h2>
+        <p className="section-subtitle">
+          A timeline highlighting my hands-on software engineering experience, enterprise project implementations, and professional full-stack development journey.
+        </p>
 
-      <div className="timeline">
-        {/* Experience 1 */}
-        <div className="timeline-item">
-          <div className="timeline-dot"></div>
-          <div className="experience-card glass-panel">
-            <div className="experience-card-header">
-              <div className="experience-title-box">
-                <h3>Software Engineer</h3>
-                <span className="company">RideAlot Software Solution</span>
-              </div>
-              <span className="experience-duration">Sep 2025 – Present</span>
-            </div>
-            <ul>
-              <li>Develop and maintain web services using React.js, Java Spring Boot, and Hibernate JPA.</li>
-              <li>Design secure database models in MySQL to optimize query execution and data storage.</li>
-              <li>Collaborate with cross-functional teams to integrate APIs and release responsive application updates.</li>
-            </ul>
-          </div>
-        </div>
+        <div className="timeline">
+          {experiences.map((item, idx) => (
+            <div className="timeline-item" key={idx}>
+              <div className="timeline-dot-glow"></div>
+              <div className="experience-card glass-panel">
+                <div className="scan-laser"></div>
+                <div className="cyber-corner-tl"></div>
+                <div className="cyber-corner-br"></div>
+                
+                <div className="experience-card-header">
+                  <div className="experience-title-box">
+                    <div className="exp-role-badge">
+                      <span className="exp-icon">{item.icon}</span>
+                      <h3>{item.title}</h3>
+                    </div>
+                    <span className="company">🏢 {item.company}</span>
+                  </div>
+                  <div className="exp-meta-badge">
+                    <span className="experience-duration">{item.duration}</span>
+                    <span className="exp-type-tag">{item.type}</span>
+                  </div>
+                </div>
 
-        {/* Experience 2 */}
-        <div className="timeline-item">
-          <div className="timeline-dot"></div>
-          <div className="experience-card glass-panel">
-            <div className="experience-card-header">
-              <div className="experience-title-box">
-                <h3>Java Full Stack Developer Intern</h3>
-                <span className="company">JSpiders Academy</span>
-              </div>
-              <span className="experience-duration">Jul 2024 – Jan 2025</span>
-            </div>
-            <ul>
-              <li>Gained deep knowledge in Core Java, JDBC, Servlets, Hibernate, and SQL queries.</li>
-              <li>Built client-side user interfaces with React and connected them to Java backends.</li>
-              <li>Worked in simulated Agile sprints, conducting code reviews, testing, and continuous debugging.</li>
-            </ul>
-          </div>
-        </div>
+                <ul className="exp-highlights-list">
+                  {item.highlights.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
 
-        {/* Experience 3 */}
-        <div className="timeline-item">
-          <div className="timeline-dot"></div>
-          <div className="experience-card glass-panel">
-            <div className="experience-card-header">
-              <div className="experience-title-box">
-                <h3>Java Full Stack Developer Intern</h3>
-                <span className="company">Karthikeya Software Solutions</span>
+                <div className="exp-tech-tags">
+                  {item.tech.map((t, i) => (
+                    <span key={i} className="exp-tag">{t}</span>
+                  ))}
+                </div>
               </div>
-              <span className="experience-duration">Jan 2024 – Jun 2024</span>
             </div>
-            <ul>
-              <li>Contributed to database designs and RESTful API routes under the guidance of senior developers.</li>
-              <li>Created interactive web layouts using CSS3, HTML5, and JavaScript.</li>
-              <li>Participated in troubleshooting production bugs and optimizing web page speeds.</li>
-            </ul>
-          </div>
+          ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

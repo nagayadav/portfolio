@@ -1,15 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Home from './ProfileSection';
 import AboutSection from './AboutSection';
-import ServicesSection from './ServiceSecttion';
+import ServicesSection from './ServicesSection';
 import Portfolio from './ProjectSection';
 import Contact from './ContactSection';
 import Experience from './exp';
+import ResumeModal from './components/ResumeModal';
+import { soundFx } from './utils/audioSynth';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
@@ -21,14 +24,14 @@ const Navbar = () => {
   // Monitor scroll for styling navbar and active scroll spy
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 20) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
 
-      // Simple scroll spy logic
-      const scrollPos = window.scrollY + 120;
+      // Scroll spy logic
+      const scrollPos = window.scrollY + 140;
       
       const aboutOffset = aboutRef.current?.offsetTop || 0;
       const servicesOffset = servicesRef.current?.offsetTop || 0;
@@ -56,15 +59,22 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (ref, name) => {
+    soundFx.playClick();
     ref.current?.scrollIntoView({ behavior: 'smooth' });
     setActiveSection(name);
+    setMenuOpen(false);
+  };
+
+  const handleOpenResume = () => {
+    soundFx.playChime();
+    setIsResumeOpen(true);
     setMenuOpen(false);
   };
 
   return (
     <>
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-        <h2 onClick={() => scrollToSection(homeRef, 'home')}>
+        <h2 className="navbar-logo" onClick={() => scrollToSection(homeRef, 'home')}>
           Nagendra<span>.dev</span>
         </h2>
         
@@ -78,10 +88,19 @@ const Navbar = () => {
           <li className={activeSection === 'home' ? 'active' : ''} onClick={() => scrollToSection(homeRef, 'home')}>Home</li>
           <li className={activeSection === 'about' ? 'active' : ''} onClick={() => scrollToSection(aboutRef, 'about')}>About</li>
           <li className={activeSection === 'services' ? 'active' : ''} onClick={() => scrollToSection(servicesRef, 'services')}>Services</li>
-          <li className={activeSection === 'portfolio' ? 'active' : ''} onClick={() => scrollToSection(portfolioRef, 'portfolio')}>Portfolio</li>
+          <li className={activeSection === 'portfolio' ? 'active' : ''} onClick={() => scrollToSection(portfolioRef, 'portfolio')}>Projects</li>
           <li className={activeSection === 'experience' ? 'active' : ''} onClick={() => scrollToSection(expRef, 'experience')}>Experience</li>
           <li className={activeSection === 'contact' ? 'active' : ''} onClick={() => scrollToSection(contactRef, 'contact')}>Contact</li>
         </ul>
+
+        <div className="nav-actions">
+          <button className="nav-resume-btn" onClick={handleOpenResume}>
+            Resume 📄
+          </button>
+          <button className="nav-cta-btn" onClick={() => scrollToSection(contactRef, 'contact')}>
+            Let's Talk ➔
+          </button>
+        </div>
       </nav>
 
       {/* Backdrop blur for open mobile menu */}
@@ -96,11 +115,15 @@ const Navbar = () => {
           <li className={activeSection === 'home' ? 'active' : ''} onClick={() => scrollToSection(homeRef, 'home')}>Home</li>
           <li className={activeSection === 'about' ? 'active' : ''} onClick={() => scrollToSection(aboutRef, 'about')}>About</li>
           <li className={activeSection === 'services' ? 'active' : ''} onClick={() => scrollToSection(servicesRef, 'services')}>Services</li>
-          <li className={activeSection === 'portfolio' ? 'active' : ''} onClick={() => scrollToSection(portfolioRef, 'portfolio')}>Portfolio</li>
+          <li className={activeSection === 'portfolio' ? 'active' : ''} onClick={() => scrollToSection(portfolioRef, 'portfolio')}>Projects</li>
           <li className={activeSection === 'experience' ? 'active' : ''} onClick={() => scrollToSection(expRef, 'experience')}>Experience</li>
           <li className={activeSection === 'contact' ? 'active' : ''} onClick={() => scrollToSection(contactRef, 'contact')}>Contact</li>
+          <li className="nav-mobile-resume" onClick={handleOpenResume}>📄 View Resume</li>
         </ul>
       </div>
+
+      {/* Resume Viewer Modal */}
+      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
 
       {/* Sections wrappers with matching IDs for layout and hooks */}
       <div id="home" ref={homeRef}><Home /></div>
